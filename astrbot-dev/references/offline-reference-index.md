@@ -1,4 +1,4 @@
-﻿# Offline Reference Index
+# Offline Reference Index
 
 Use these bundled files before browsing or using external documentation. Load only the smallest file(s) needed for the task.
 
@@ -28,8 +28,8 @@ Use these bundled files before browsing or using external documentation. Load on
 
 ## Bundled Prior Art
 
-- Previous development skill snapshot: `references/offline/skill-astrbot-dev/SKILL.md`
-- Official reviewer skill snapshot: `references/offline/astrbot-official-reviewer/SKILL.md`
+- Previous development skill snapshot: `references/offline/skill-astrbot-dev/REFERENCE.md`
+- Official reviewer skill snapshot: `references/offline/astrbot-official-reviewer/REFERENCE.md`
 - Review rules and checklist: `references/offline/review-astrbot-plugin/references/`
 
 ## Offline Strategy

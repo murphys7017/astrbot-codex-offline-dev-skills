@@ -13,7 +13,7 @@ Use this skill as the top-level workflow for TypeScript/JavaScript repository wo
 2. Inspect `tsconfig*.json`, build config, test config, and source layout.
 3. Run `scripts/ts_project_probe.py <repo>` when you need a quick inventory of package scripts and TS config files.
 4. Classify the request with `references/effective-typescript-index.md`.
-5. Load specific bundled offline source skills from `references/offline/effective-typescript-skills/<skill-name>/SKILL.md` only when their row matches the current problem.
+5. Load specific bundled offline source skills from `references/offline/effective-typescript-skills/<skill-name>/REFERENCE.md` only when their row matches the current problem.
 6. Follow `references/typescript-workflow.md` for task execution and validation order.
 
 ## Operating Rules

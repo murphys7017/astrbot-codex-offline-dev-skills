@@ -1,4 +1,4 @@
-﻿# Official Documentation Index
+# Official Documentation Index
 
 Use this index to load the minimum bundled AstrBot material needed for plugin development. All paths are relative to `generated-skills/astrbot-dev/`.
 
@@ -34,10 +34,10 @@ Prefer `references/offline/...` paths before external docs or network access. Br
 
 ## Bundled Source/Review Inputs
 
-- `references/offline/skill-astrbot-dev/SKILL.md` — existing compact development reference; use as a cross-check for imports, structure, and high-signal code entry points.
+- `references/offline/skill-astrbot-dev/REFERENCE.md` — existing compact development reference; use as a cross-check for imports, structure, and high-signal code entry points.
 - `references/offline/review-astrbot-plugin/references/astrbot-api-rules.md` — API rules and pitfalls extracted for review; use as a final sanity pass.
 - `references/offline/review-astrbot-plugin/references/astrbot-review-checklist.md` — quality/security checklist; use selectively, not as the primary development workflow.
-- `references/offline/astrbot-official-reviewer/SKILL.md` — official-review expectations; useful for publish-ready plugins.
+- `references/offline/astrbot-official-reviewer/REFERENCE.md` — official-review expectations; useful for publish-ready plugins.
 
 ## Source Priority
 
