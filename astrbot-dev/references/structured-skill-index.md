@@ -2,6 +2,8 @@
 
 Use this index for the bundled `xunxiing/AstrBot-Skill` snapshot. It is AI-oriented: compact topic folders, API lists, and workflow notes. Prefer it for fast orientation, then cross-check exact behavior against official bundled docs or target project code.
 
+Snapshot source: `https://github.com/xunxiing/AstrBot-Skill` at commit `7396bc0`.
+
 ## Entry Points
 
 - Skill workflow reference: `references/offline/xunxiing-AstrBot-Skill/docs/REFERENCE.md`
