@@ -11,6 +11,8 @@ astrbot_plugin_example/
 ├── _conf_schema.json        # optional but recommended for settings/secrets
 ├── requirements.txt         # optional dependencies
 ├── README.md
+├── LICENSE                  # recommended for publishable plugins
+├── .gitignore               # ignore __pycache__, venvs, IDE state, logs
 └── tools/                   # optional LLM FunctionTool classes
 ```
 
@@ -26,6 +28,8 @@ repo: https://github.com/owner/astrbot_plugin_example
 ```
 
 Optional metadata: `support_platforms: [...]`, `tags: [...]`, `social_link: ...`, `astrbot_version: ">=4.5.0"`.
+
+Before scaffolding from memory, skim the structured reference entrypoint `references/offline/xunxiing-AstrBot-Skill/docs/REFERENCE.md` and the core concept map `references/offline/xunxiing-AstrBot-Skill/docs/design_standards/core_concepts.md`.
 
 ## 2. Implement the Plugin Class
 
@@ -64,6 +68,10 @@ Common filters:
 
 Special hooks such as `on_llm_request`, `on_llm_response`, `on_decorating_result`, and `after_message_sent` should send with `await event.send(...)` instead of yielding results.
 
+Do not mix hook layers:
+- Plugin event hooks/decorators: `references/offline/xunxiing-AstrBot-Skill/docs/plugin_config/hooks.md`.
+- Agent runner hooks (`BaseAgentRunHooks`): `references/offline/xunxiing-AstrBot-Skill/docs/agent/agent-related-hooks.md`.
+
 ## 4. Work With Messages
 
 - Plain text input: `event.message_str`.
@@ -100,7 +108,8 @@ Provider calls:
 - Surface provider/model selection as config when users may have multiple providers.
 
 Function tools:
-- Prefer class-based tools by subclassing `FunctionTool` and registering via `self.context.add_llm_tools(...)` on supported versions.
+- Prefer dataclass/class-based tools by subclassing `FunctionTool` and registering via `self.context.add_llm_tools(...)` on supported versions.
+- For v4.5.7+ targets, cross-check the dataclass pattern in `references/offline/xunxiing-AstrBot-Skill/docs/design_standards/core_concepts.md`.
 - For `@filter.llm_tool`, include a parseable docstring and typed parameters matching the documented JSON parameter schema.
 - Do not combine `@filter.permission_type` with `@filter.llm_tool`; it is ineffective.
 
@@ -120,3 +129,5 @@ Use AstrBot's text-to-image/HTML rendering helpers documented in the plugin guid
 - During message parsing bugs, inspect both `event.message_obj.message` and `event.message_obj.raw_message`.
 - Test command registration, config defaults, permission behavior, reload/unload via `terminate`, and platform-specific component support.
 - Run `scripts/check_astrbot_plugin.py <plugin_dir>` for static structure checks.
+
+When writing README/API docs for AI consumption, use `references/offline/xunxiing-AstrBot-Skill/docs4agent/REFERENCE.md`: keep docs minimal, code-first, structured, and focused on exact callable APIs.

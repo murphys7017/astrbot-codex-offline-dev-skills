@@ -144,6 +144,8 @@ def main() -> int:
     metadata_yaml = plugin_dir / "metadata.yaml"
     config_schema = plugin_dir / "_conf_schema.json"
     readme = plugin_dir / "README.md"
+    license_file = plugin_dir / "LICENSE"
+    gitignore = plugin_dir / ".gitignore"
 
     findings.extend(check_main(main_py))
 
@@ -163,6 +165,10 @@ def main() -> int:
         findings.append(("INFO", "no _conf_schema.json found; add one if plugin has settings or secrets"))
     if not readme.exists():
         findings.append(("INFO", "no README.md found"))
+    if not license_file.exists():
+        findings.append(("INFO", "no LICENSE found; recommended for publishable plugins"))
+    if not gitignore.exists():
+        findings.append(("INFO", "no .gitignore found; ignore __pycache__, virtualenvs, IDE files, and logs"))
 
     severity_order = {"ERROR": 0, "WARN": 1, "INFO": 2}
     findings.sort(key=lambda item: (severity_order.get(item[0], 9), item[1]))

@@ -25,6 +25,7 @@ Use this before finalizing AstrBot plugin code.
 - Normal command/message handlers may `yield event.plain_result(...)` or chain/image results.
 - `on_llm_request`, `on_llm_response`, `on_decorating_result`, and `after_message_sent` must not use `yield`; send directly with `event.send(...)` if needed.
 - LLM request/response hooks use the documented third parameter type, such as provider request/LLM response objects.
+- Do not confuse plugin event hooks with agent runner hooks; route through `references/offline/xunxiing-AstrBot-Skill/docs/plugin_config/hooks.md` or `references/offline/xunxiing-AstrBot-Skill/docs/agent/agent-related-hooks.md` as appropriate.
 - Avoid broad catch-and-ignore exception blocks; log actionable errors.
 
 ## Message Chains
@@ -43,7 +44,7 @@ Use this before finalizing AstrBot plugin code.
 
 ## AI, Tools, MCP
 
-- Prefer class-based `FunctionTool` for complex LLM tools; keep JSON schema and `run(...)` parameters in sync.
+- Prefer dataclass/class-based `FunctionTool` for complex LLM tools when supported; keep JSON schema and callable parameters in sync.
 - `@filter.llm_tool` requires a clear docstring with argument names/types/descriptions.
 - Do not apply `@filter.permission_type` to `@filter.llm_tool` methods.
 - Document MCP prerequisites instead of hiding external server startup inside message handlers.
